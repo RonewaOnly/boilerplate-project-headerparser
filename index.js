@@ -26,13 +26,18 @@ app.get('/api/hello', function (req, res) {
 
 // API route: /api/whoami
 app.get('/api/whoami', (req, res) => {
-  const ipaddress = req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  // Retrieve user details
+  const ipaddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip;
   const language = req.headers['accept-language'];
   const software = req.headers['user-agent'];
 
-  res.json({ipaddress,language,software,});
+  // Send JSON response
+  res.json({
+    ipaddress,
+    language,
+    software,
+  });
 });
-
 // listen for requests :)
 var listener = app.listen(process.env.PORT || 3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
