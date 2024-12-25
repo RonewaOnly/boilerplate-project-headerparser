@@ -27,9 +27,9 @@ app.get('/api/hello', function (req, res) {
 // API route: /api/whoami
 app.get('/api/whoami', (req, res) => {
   // Retrieve user details
-  const ipaddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.ip;
-  const language = req.headers['accept-language'];
-  const software = req.headers['user-agent'];
+   const ipaddress = req.headers['x-forwarded-for'] || req.ip;
+   const language = req.headers['accept-language'] || "unknown";
+   const software = req.headers['user-agent'] || "unknown";
 
   // Send JSON response
   res.send({
