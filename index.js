@@ -33,9 +33,9 @@ app.get('/api/whoami', (req, res) => {
 
   // Send JSON response
   res.send({
-    ipaddress,
-    language,
-    software,
+    "ipaddress":ipaddress,
+    "language":language,
+    "software":software,
   });
 });
 // listen for requests :)
