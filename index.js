@@ -32,7 +32,7 @@ app.get('/api/whoami', (req, res) => {
   const software = req.headers['user-agent'];
 
   // Send JSON response
-  res.json({
+  res.send({
     ipaddress,
     language,
     software,
